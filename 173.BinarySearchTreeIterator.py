@@ -23,3 +23,4 @@ class BSTIterator:
 
     def hasNext(self) -> bool:
         return len(self.stack) > 0 
+ 
