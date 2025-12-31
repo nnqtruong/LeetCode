@@ -7,21 +7,19 @@ class Solution:
             not list
             empty list
         P 
-        1. Count most consecutive 1s, if 0, turn 0 to 1, k -=1
-        2. Find 0s then find 1s
+        1. sliding window approach with two pointers left and right
+        2. iterate through nums with right pointer
+            a. if nums[right] is 0, decrement k
+            b. if k < 0, move left pointer to the right until k >= 0
         
         """
-        if not nums or len(nums) == 0:
-            return 0
-        
-        curr = left = 0
+        best = left = 0
         for right, n in enumerate(nums):
             if n == 0:
                 k -= 1
             if k < 0:
-                if nums[left]==0:
+                if nums[left] == 0:
                     k += 1
                 left += 1
-            
-            curr = max(curr, right - left + 1)
-        return curr 
+            best = max(best, right - left + 1)
+        return best
