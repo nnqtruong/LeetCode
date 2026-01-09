@@ -21,6 +21,7 @@ class Solution:
         ans = 0
 
         for i, n in enumerate(nums):
+            #Within the loop, update last bad, last min, last max
             if n < minK or n > maxK:
                 last_bad = i
             if n == minK:
